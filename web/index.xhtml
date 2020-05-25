@@ -29,23 +29,25 @@
             <p:growl id="messages" showDetail="true" />
             
             <h1 class="cabecalho"> <span class="tituloCabecalho">Upload de arquivos </span> </h1>
+            
+            <div align="center">
+                <p:fileUpload value="#{mb.file}" mode="simple" skinSimple="true" update="messages" label="Selecione o arquivo"
+                              sizeLimit="102400" fileLimit="1" allowTypes="/(\.|\/)(doc|txt)$/"
+                              invalidFileMessage="Tipo de arquivo  suportado"
+                              invalidSizeMessage="Arquivo muito grande"/>
 
-            <p:fileUpload value="#{mb.file}" mode="simple" skinSimple="true" update="messages" label="Selecione o arquivo"
-                          sizeLimit="102400" fileLimit="1" allowTypes="/(\.|\/)(doc|txt)$/"
-                          invalidFileMessage="Tipo de arquivo  suportado"
-                          invalidSizeMessage="Arquivo muito grande"/>
+                <br/> <hr/>
+                <p:commandButton value="Processar Arquivo" ajax="false" action="#{mb.upload()}" disabled="false" update="txtarea" />
+                <br/> <br/>
+            </div>
 
-            <br />
-            <p:commandButton value="Processar Arquivo" ajax="false" action="#{mb.upload()}" disabled="false" update="txtarea" />
-             <br/>
+            
         </h:form>
         
         <h:form>
-            <div class="ui-g">
-                <div class="ui-g-12">
-                    <label style="color: red">Confira seu texto logo abaixo</label><br/>
+            <div align="center">
+                <h2><label style="color: red">Confira seu texto logo abaixo</label></h2><br/>
                     <p:inputTextarea id="txtarea" rows="10" value=" #{mb.conteudo()}" cols="120" autoResize="true"/>
-                </div>
             </div>
         </h:form>
         
